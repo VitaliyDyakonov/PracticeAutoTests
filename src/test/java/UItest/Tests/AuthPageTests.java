@@ -21,7 +21,7 @@ public class AuthPageTests extends TestBase {
 
     @BeforeEach
     public void prepareForTest(){
-        Allure.step("Открывать страницу авторизации", ()->{
+        Allure.step("Открыть страницу авторизации", ()->{
             AuthPage.openPage();
         });
     }

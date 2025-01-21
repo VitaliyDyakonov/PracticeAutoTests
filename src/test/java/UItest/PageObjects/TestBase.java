@@ -10,7 +10,7 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
         Configuration.pageLoadTimeout = 40000;
-        Configuration.headless = false;
+        Configuration.headless = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
         );

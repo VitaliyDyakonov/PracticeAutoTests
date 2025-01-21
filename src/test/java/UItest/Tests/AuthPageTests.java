@@ -34,6 +34,7 @@ public class AuthPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     public void successfulAuth() {
         authPage.enterUsername("standard_user");
         authPage.getUsername().shouldHave(value("standard_user"));
@@ -43,6 +44,7 @@ public class AuthPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     public void errorAuth() {
         authPage.login();
         authPage.getErrorContainer().shouldHave(text("Epic sadface: Username is required"));
@@ -60,6 +62,7 @@ public class AuthPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     public void closingError() {
         authPage.login();
         authPage.getUsername().shouldHave(cssValue("border-bottom-color", "rgba(226, 35, 26, 1)"));

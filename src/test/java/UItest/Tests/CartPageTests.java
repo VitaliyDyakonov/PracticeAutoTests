@@ -4,10 +4,7 @@ import UItest.PageObjects.SwagLabs.CartPage;
 import UItest.PageObjects.TestBase;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Allure;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -36,6 +33,7 @@ public class CartPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void openItemList() {
         $(".title").shouldHave(text("Your Cart"));
         Allure.step("Открыть корзину",()->{
@@ -47,6 +45,7 @@ public class CartPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void removeItemsFromCart() {
         while (cartPage.getItemList().size() != 0){
             String removedItemName = cartPage.getItemList().get(0).$(cartPage.getItem().getItemName()).text();
@@ -62,6 +61,7 @@ public class CartPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void goToCheckout() {
         cartPage.goToCheckout();
     }

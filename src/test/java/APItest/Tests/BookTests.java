@@ -9,9 +9,9 @@ import APItest.PojoClasses.Books;
 import io.qameta.allure.Allure;
 import io.restassured.response.ExtractableResponse;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,6 +29,7 @@ public class BookTests extends TestBase{
     }
 
     @Test
+    @Tag("API test")
     void getBooks() {
         Allure.step("Отправить запрос на получение списка книг", ()->{
         ExtractableResponse response=bookTests.getBooks();
@@ -37,6 +38,7 @@ public class BookTests extends TestBase{
     }
 
     @Test
+    @Tag("API test")
     void getBook() {
         Books books = bookTests.getBooks().body().jsonPath().getObject("", Books.class);
         Book book = books.getBooks().get(new Random().nextInt(books.getBooks().size()));
@@ -48,6 +50,7 @@ public class BookTests extends TestBase{
     }
 
     @Test
+    @Tag("API test")
     void addListBooks() {
         Account acc = new Account();
         AccountApi accApi = new AccountApi();

@@ -5,10 +5,7 @@ import UItest.PageObjects.SwagLabs.ProductPage;
 import UItest.PageObjects.TestBase;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.ex.InvalidStateError;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -38,6 +35,7 @@ public class CheckoutPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void validateForm() {
         checkoutPage.submit();
         checkoutPage.getErrorContainer().shouldHave(text("Error: First Name is required"));
@@ -50,6 +48,7 @@ public class CheckoutPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void checkSum() {
         checkoutPage.enterFirstName("test");
         checkoutPage.enterLastName("test");
@@ -64,6 +63,7 @@ public class CheckoutPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void finishCheckout() {
         checkoutPage.enterFirstName("test");
         checkoutPage.enterLastName("test");

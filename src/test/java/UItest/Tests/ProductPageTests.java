@@ -6,10 +6,7 @@ import UItest.PageObjects.SwagLabs.Sidebar;
 import UItest.PageObjects.TestBase;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Allure;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.*;
 
@@ -40,6 +37,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void openSidebar() {
         Sidebar sidebar = new Sidebar();
         sidebar.openBurger();
@@ -51,6 +49,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void closeSidebar() {
         Sidebar sidebar = new Sidebar();
         sidebar.openBurger();
@@ -63,6 +62,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void goAboutPage() {
         Sidebar sidebar = new Sidebar();
         sidebar.openBurger();
@@ -70,6 +70,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void goToAuthPage() {
         Sidebar sidebar = new Sidebar();
         sidebar.openBurger();
@@ -77,6 +78,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void openItems() {
         DetailedItemPage detailedItemPage = new DetailedItemPage();
         for (int id=0; id < productPage.getItemList().size(); id++){
@@ -95,6 +97,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void filterByName() {
         productPage.sortItem("Name (A to Z)");
         List<String> sortedNames = productPage.getItemList().stream().map(item -> item.$(productPage.getItem().getItemName())).map(item -> item.text()).sorted().toList();
@@ -109,6 +112,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void filterByPrice() {
         productPage.sortItem("Price (low to high)");
         List<Float> sortedPrice = productPage.getItemList().stream().map(item -> item.$(productPage.getItem().getItemPrice())).map(item -> item.text()).map(item -> Float.parseFloat(item.substring(1))).sorted().toList();
@@ -123,6 +127,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void addItemToCart() {
         DetailedItemPage detailedPage = new DetailedItemPage();
         for (int id=0; id < productPage.getItemList().size(); id++) {
@@ -143,6 +148,7 @@ public class ProductPageTests extends TestBase {
     }
 
     @Test
+    @Tag("UI test")
     void removeItemFromCart() {
         for (int id=0; id < productPage.getItemList().size(); id++) {
             productPage.getItemList().get(id).$(productPage.getItem().getAddButton()).click();

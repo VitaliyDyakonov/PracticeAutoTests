@@ -6,6 +6,7 @@ import APItest.PojoClasses.Account;
 import io.qameta.allure.Allure;
 import io.restassured.response.ExtractableResponse;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +28,7 @@ public class AccountTests extends TestBase{
 
     @Test
     @Tag("API test")
+    @DisplayName("Валидация запроса на генерацию токена")
     void incorrectGenerateToken() {
         Account account = new Account();
         Allure.step("Отправить запрос на получение токена с пустыми атрибутами", ()->{
@@ -48,6 +50,7 @@ public class AccountTests extends TestBase{
 
     @Test
     @Tag("API test")
+    @DisplayName("Генерация токена")
     void correctGenerateToken() {
         Account account = new Account();
         account.setUserName("VVDyakonov");
@@ -64,6 +67,7 @@ public class AccountTests extends TestBase{
 
     @Test
     @Tag("API test")
+    @DisplayName("Авторизация")
     void correctLogin() {
         Account account = new Account();
         account.setUserName("VVDyakonov");
@@ -78,6 +82,7 @@ public class AccountTests extends TestBase{
 
     @Test
     @Tag("API test")
+    @DisplayName("Валидация запроса на создание пользователя")
     void incorrectUserCreate() {
         Account account = new Account();
         account.setUserName("VVDyakonov");
@@ -104,6 +109,7 @@ public class AccountTests extends TestBase{
 
     @Test
     @Tag("API test")
+    @DisplayName("Создание и удаление пользователя")
     void userCreateDelete() {
         Account account = new Account();
         account.setUserName("CreatedUser"+new Random().nextInt(100));
@@ -125,6 +131,7 @@ public class AccountTests extends TestBase{
 
     @Test
     @Tag("API test")
+    @DisplayName("Получение пользователя")
     void getUser() {
         Account account = new Account();
         account.setUserName("CreatedUser"+Math.random()*100);

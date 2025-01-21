@@ -38,6 +38,7 @@ public class ProductPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Открытие сайдбара")
     void openSidebar() {
         Sidebar sidebar = new Sidebar();
         sidebar.openBurger();
@@ -50,6 +51,7 @@ public class ProductPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Закрытие сайдбара")
     void closeSidebar() {
         Sidebar sidebar = new Sidebar();
         sidebar.openBurger();
@@ -63,6 +65,7 @@ public class ProductPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Переход на страницу About")
     void goAboutPage() {
         Sidebar sidebar = new Sidebar();
         sidebar.openBurger();
@@ -71,6 +74,7 @@ public class ProductPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Переход на страницу авторизации")
     void goToAuthPage() {
         Sidebar sidebar = new Sidebar();
         sidebar.openBurger();
@@ -79,6 +83,7 @@ public class ProductPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Переход на страницу детальной карточки продукта")
     void openItems() {
         DetailedItemPage detailedItemPage = new DetailedItemPage();
         for (int id=0; id < productPage.getItemList().size(); id++){
@@ -98,6 +103,7 @@ public class ProductPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Фильтрация списка продуктов по наименованию")
     void filterByName() {
         productPage.sortItem("Name (A to Z)");
         List<String> sortedNames = productPage.getItemList().stream().map(item -> item.$(productPage.getItem().getItemName())).map(item -> item.text()).sorted().toList();
@@ -113,6 +119,7 @@ public class ProductPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Фильтрация списка продуктов по цене")
     void filterByPrice() {
         productPage.sortItem("Price (low to high)");
         List<Float> sortedPrice = productPage.getItemList().stream().map(item -> item.$(productPage.getItem().getItemPrice())).map(item -> item.text()).map(item -> Float.parseFloat(item.substring(1))).sorted().toList();
@@ -128,6 +135,7 @@ public class ProductPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Добавление продуктов в корзину")
     void addItemToCart() {
         DetailedItemPage detailedPage = new DetailedItemPage();
         for (int id=0; id < productPage.getItemList().size(); id++) {

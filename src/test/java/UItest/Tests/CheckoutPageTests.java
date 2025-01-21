@@ -36,6 +36,7 @@ public class CheckoutPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Валидация полей оформления заказа")
     void validateForm() {
         checkoutPage.submit();
         checkoutPage.getErrorContainer().shouldHave(text("Error: First Name is required"));
@@ -49,6 +50,7 @@ public class CheckoutPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Проверка подсчета финальной суммы")
     void checkSum() {
         checkoutPage.enterFirstName("test");
         checkoutPage.enterLastName("test");
@@ -64,6 +66,7 @@ public class CheckoutPageTests extends TestBase {
 
     @Test
     @Tag("UI test")
+    @DisplayName("Завершение оформления заказа")
     void finishCheckout() {
         checkoutPage.enterFirstName("test");
         checkoutPage.enterLastName("test");

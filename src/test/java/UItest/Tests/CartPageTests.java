@@ -18,10 +18,8 @@ public class CartPageTests extends TestBase {
 
     @BeforeAll
     static void setUp(){
-        Allure.step("Подготовка окружения", ()->{
             setup();
             CartPage.setCookies();
-        });
     }
 
     @BeforeEach

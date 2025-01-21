@@ -17,10 +17,11 @@ public class CheckoutPageTests extends TestBase {
 
     CheckoutPage checkoutPage = new CheckoutPage();
 
+
     @BeforeAll
     static void setUp(){
-        setup();
         CheckoutPage.setCookies();
+        setup();
     }
 
     @BeforeEach
